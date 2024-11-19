@@ -1,0 +1,114 @@
+import pygame
+pygame.init()
+schermo = pygame.display.set_mode((800, 600))
+pygame.display.set_caption("Breakout")
+larghezza_blocco = 78
+altezza_blocco = 20
+numero_blocchi = 10
+blocchi = []
+l=0
+y = 40
+while l < 10:  
+    for i in range(numero_blocchi):
+        x = i * (larghezza_blocco + 2) + 1
+        blocchi.append(pygame.Rect(x, y, larghezza_blocco, altezza_blocco))
+    y += 25
+    l +=1 
+
+def disegna_blocchi(blocchi):
+        BIANCO = (255,255,255)
+        ARANCIONE = (255,126,0)
+        ROSSO = (255,0,0)
+        GIALLO = (255,255,0)
+        VERDE = (0,255,0)
+        for blocco in blocchi:  
+            if blocchi.index(blocco) in range(20):
+                pygame.draw.rect(schermo, VERDE, blocco)
+            if blocchi.index(blocco) in range(20,40):
+                pygame.draw.rect(schermo, BIANCO, blocco)
+            if blocchi.index(blocco) in range(40,60):
+                pygame.draw.rect(schermo, GIALLO, blocco)
+            if blocchi.index(blocco) in range(60,80):
+                pygame.draw.rect(schermo, ARANCIONE, blocco)
+            if blocchi.index(blocco) in range(80,100):
+                pygame.draw.rect(schermo, ROSSO, blocco)
+y = 1
+while y==1:
+    for evento in pygame.event.get():
+            if evento.type == pygame.QUIT:
+                y = 0
+    disegna_blocchi(blocchi)
+    pygame.display.flip()
+
+
+def vittoria(punti):
+    pygame.init()
+    finestra = pygame.display.set_mode((800, 600))
+    sfondo = pygame.image.load("1.1.png").convert()
+    finestra.blit(sfondo, (0, 0))
+    x = str(punti)+'/100'
+    y = "HAI VINTO!!!"
+    vittoria = pygame.font.Font(None, 60).render(y, True, (0,255,0))
+    punteggio1 = pygame.font.Font(None, 60).render(x, True, (0,255,0))
+    continua = pygame.font.Font(None, 30).render("CONTINUA", True, (255, 255, 255))
+    finestra.blit(vittoria, (280, 260))
+    finestra.blit(punteggio1, (330, 300))
+    finestra.blit(continua, (350, 500))
+    pygame.display.flip()
+
+    while True:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+
+
+def punteggio(punti):
+    pygame.init()
+    finestra = pygame.display.set_mode((800, 600))
+    sfondo = pygame.image.load("1.1.png").convert()
+    finestra.blit(sfondo, (0, 0))
+    x = str(punti)+'/100'
+    y = "IL TUO PUNTEGGO  E' DI:"
+    punteggio = pygame.font.Font(None, 40).render(y, True, (200, 200, 200))
+    if punti < 20:
+        punteggio1 = pygame.font.Font(None, 60).render(x, True, (255,0,0))
+    if punti in range(20,40):
+        punteggio1 = pygame.font.Font(None, 60).render(x, True, (255,126,0))
+    if punti in range(40,60):
+        punteggio1 = pygame.font.Font(None, 60).render(x, True, (255,255,0)) 
+    if punti in range(60,80):
+        punteggio1 = pygame.font.Font(None, 60).render(x, True, (255,255,255))
+    if punti in range(80,101):
+        punteggio1 = pygame.font.Font(None, 60).render(x, True, (0,255,0))
+
+    continua = pygame.font.Font(None, 30).render("CONTINUA", True, (255, 255, 255))
+    finestra.blit(punteggio, (230, 260))
+    finestra.blit(punteggio1, (350, 300))
+    finestra.blit(continua, (350, 500))
+    pygame.display.flip()
+    
+    while True:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+
+
+def menu():
+    pygame.init()
+    finestra = pygame.display.set_mode((800, 600))
+    sfondo = pygame.image.load("1.1.png").convert()
+    finestra.blit(sfondo, (0, 0))
+    
+    gioca = pygame.font.Font(None, 80).render("GIOCA!", True, (255, 255, 255))
+    esci = pygame.font.Font(None, 50).render("ESCI", True, (255, 255, 255))
+    finestra.blit(gioca, (300, 260))
+    finestra.blit(esci, (360, 500))
+    pygame.display.flip()
+    
+    while True:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+
+menu()
+    
