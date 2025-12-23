@@ -44,6 +44,11 @@ Il gioco è strutturato in diverse fasi logiche:
 
 ---
 
+<img src="screenshots/home.png" width="400">
+<img src="screenshots/gameplay.png" width="400">
+
+
+
 ## 👤 Autore
 **Vittorio Butera**
 - GitHub: [@buteravittorio](https://github.com/buteravittorio)
