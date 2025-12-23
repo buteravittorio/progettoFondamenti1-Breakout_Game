@@ -1,4 +1,4 @@
-# Breakout Game - Python Arcade 🕹️
+# Breakout Game - Python Arcade 🕹️ - 2023
 
 Questo progetto è un'implementazione del classico videogioco **Breakout** sviluppata in Python. Il software gestisce un sistema completo di gioco arcade, includendo menu di navigazione, gestione della fisica della pallina e un sistema di punteggio dinamico.
 
